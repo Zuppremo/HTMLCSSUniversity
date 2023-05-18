@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ParkingLot.Models.PersonModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" initial-scale="1.0"/>
+    <environment names="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/PersonStylesheet.css" type="text/css"/>
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/PersonStylesheet.css" type="text/css" />
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/5.2.3/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+    <title>Persons</title>
+</head>
+<body>
+    <h1> Persons </h1>
+    <div id="data">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Identification Number</th>
+                    <th scope="col">Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (PersonModel person in Model)
+                {
+                    <tr>
+                        <td>@person.Id</td>
+                        <td>@person.Name</td>
+                        <td>@person.Email</td>
+                        <td>@person.IdentificationNumber</td>
+                        <td>@person.Phone</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
