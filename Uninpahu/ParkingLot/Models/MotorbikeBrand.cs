@@ -2,7 +2,7 @@
 {
     public class MotorbikeBrand
     {
-        public int IdMotorbikeBrand { get; set; }
-        public required string MotorbikeBrandName { get; set; }
+        public int Id { get; set; }
+        public required string Name { get; set; }
     }
 }
