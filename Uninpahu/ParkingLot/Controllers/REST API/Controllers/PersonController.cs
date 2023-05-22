@@ -7,12 +7,36 @@ namespace ParkingLot.Controllers.REST_API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonController : ControllerBase
+    public class PersonController
     {
         private readonly IConfiguration configuration;
         public PersonController(IConfiguration configuration)
         {
             this.configuration = configuration;
+        }
+
+
+        [HttpGet("last")]
+        public JsonResult GetLastId()
+        {
+            string query = @"SELECT MAX(id_person) FROM person";
+            object a;
+            DataTable table = new DataTable();
+            string sqlDataSource = configuration.GetConnectionString("databaseConnection");
+            MySqlDataReader myReader;
+
+            using (MySqlConnection myCon = new MySqlConnection(sqlDataSource))
+            {
+                Console.WriteLine(sqlDataSource);
+                myCon.Open();
+                using (MySqlCommand myCommand = new MySqlCommand(query, myCon))
+                {
+                    a = myCommand.ExecuteScalar();
+                    Console.WriteLine(a.ToString());
+                    myCon.Close();
+                }
+            }
+            return new JsonResult(a);
         }
 
         [HttpGet]
