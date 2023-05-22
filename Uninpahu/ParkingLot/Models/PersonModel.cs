@@ -8,7 +8,7 @@ namespace ParkingLot.Models
         public string Name { get; set; }
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
-        public string IdentificationNumber { get; set; }
+        public required string IdentificationNumber { get; set; }
         public string Phone { get; set; }
     }
 }
