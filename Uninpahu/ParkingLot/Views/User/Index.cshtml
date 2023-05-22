@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ParkingLot.Models.PersonModel>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta leng="eng" />
+    <meta http-equiv="X-UA-Compatible" content="width=device-width,initial-scale=1.0">
+    <link rel="Stylesheet" type="text/css" href="~/css/registeredUser.css">
+    <title>Registro</title>
+    <script src="https://kit.fontawesome.com/b408879b64.js" crossorigin="anonymous"></script>
+</head>
+
+<div class="panel active" style="background-image: 
+url('https://img5.goodfon.com/original/1440x900/a/3c/motorcycle-helmet-mips-bike-mototsikletnyi-shlem-baik-devush.jpg?d=1')">
+</div>
+
+<body>
+    <form>
+
+        <label for="user"> <b>Usuario</b></label>
+        <br>
+        <label type="text" id="useremail" placeholder="Email-address@example.com" required></label>
+        <br>
+
+
+        <label for="user"><b>Nombre:</b></label>
+        <br>
+        <label type="name" id="name" placeholder="Nombre" required>Sara Alejandra Rosas Gomez </label>
+        <br>
+
+
+        <label for="user"><b> Email:</b></label>
+        <br>
+        <label type="email" id="email" placeholder="Email-address@example.com" required>srosasgo@uninpahu.edu.co</label>
+        <br>
+
+
+        <label for="user"><b> Número de Identificación:</b> </label>
+        <br>
+        <label type="text" id="identification-number" placeholder="C.C." required> 456</label>
+        <br>
+
+
+        <label for="user"><b> Teléfono:</b></label>
+        <br>
+        <label type="text" id="phone" placeholder="Teléfono" required> 123 </label>
+        <br>
+
+
+        <label for="user"> <b>Placa vehículo:</b></label>
+        <br>
+        <label type="text" id="plate" placeholder="Placa" required> xx</label>
+        <br>
+
+
+        <label for="user"><b> Modelo vehículo:</b></label>
+        <br>
+        <label type="text" id="model" placeholder="Modelo" required>xx</label>
+        <br>
+
+
+        <label for="user"><b> Marca vehículo:</b></label>
+        <br>
+        <label type="text" id="brand" placeholder="Marca" required> xx</label>
+        <br>
+
+
+        <label for="user"> <b>Jornada:</b></label>
+        <br>
+        <label type="text" id="workingday" placeholder="Sáb-Diur-Noctur" required>Nocturna</label>
+        <br>
+
+
+        <label for="user"><b> Estado:</b></label>
+        <br>
+        <label type="text" id="state" placeholder="Activo-Inactivo" required>Activo</label>
+
+    </form>
+    <script src="~/js/GetPersonData.js"></script>
+    <script src="~/js/GetMotorbikeBrand.js"></script>
+    <script src="~/js/GetMotorbikeData.js"></script>
+</body>
+<a class="fcc-btn" href="index.html">Salir</a>
+</html>

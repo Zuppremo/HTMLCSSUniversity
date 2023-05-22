@@ -1,7 +1,4 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -10,6 +7,7 @@
     <meta name="viewport" content="width=device-width" initial-scale="1.0" />
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/registrationStyleSheet.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="~/css/PersonStylesheet.css" type="text/css" />
@@ -21,71 +19,110 @@
     <title>User Registration</title>
 </head>
 <body>
-    <section class="h-100 h-custom" style="background-color: #8fc4b7;">
+    <section class="vh-100 gradient-custom">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-lg-8 col-xl-6">
-                    <div class="card rounded-3">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img3.webp"
-                             class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;"
-                             alt="Sample photo">
-                        <div class="card-body p-4 p-md-5">
-                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Registration Info</h3>
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                    <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                        <div class="card-body p-5 text-center">
 
-                            <form class="px-md-2">
+                            <div class="mb-md-5 mt-md-4 pb-5">
 
-                                <div class="form-outline mb-4">
-                                    <input type="text" id="form3Example1q" class="form-control" />
-                                    <label class="form-label" for="form3Example1q">Name</label>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4">
-
-                                        <div class="form-outline datepicker">
-                                            <input type="text" class="form-control" id="exampleDatepicker1" />
-                                            <label for="exampleDatepicker1" class="form-label">Select a date</label>
-                                        </div>
-
+                                <h2 class="fw-bold mb-2 text-uppercase">Registration</h2>
+                                <p class="text-white-50 mb-5">Please enter your data</p>
+                                <form action="https://localhost:7119/User/" method="post" id="registration-form">
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="nameText" class="form-control form-control-lg" />
+                                        <label class="form-label" for="nameText">Full Name</label>
                                     </div>
-                                    <div class="col-md-6 mb-4">
 
-                                        <select class="select">
-                                            <option value="1" disabled>Gender</option>
-                                            <option value="2">Female</option>
-                                            <option value="3">Male</option>
-                                            <option value="4">Other</option>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                                        <label class="form-label" for="typeEmailX">Email</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="identificationNumber" maxlength="15" class="form-control form-control-lg" />
+                                        <label class="form-label" for="identificationNumber">Identification Number</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="phoneNumber" maxlength="10" class="form-control form-control-lg" />
+                                        <label class="form-label" for="phoneNumber">Phone Number</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <label class="form-label" for="workingday-dropdown">Jornada</label>
+                                        <select id="workingday-dropdown">
+                                            <option value=1>Diurna</option>
+                                            <option value=2>Nocturna</option>
+                                            <option value=3>Sabatina</option>
                                         </select>
-
                                     </div>
-                                </div>
-
-                                <div class="mb-4">
-
-                                    <select class="select">
-                                        <option value="1" disabled>Class</option>
-                                        <option value="2">Class 1</option>
-                                        <option value="3">Class 2</option>
-                                        <option value="4">Class 3</option>
-                                    </select>
-
-                                </div>
-
-                                <div class="row mb-4 pb-2 pb-md-0 mb-md-5">
-                                    <div class="col-md-6">
-
-                                        <div class="form-outline">
-                                            <input type="text" id="form3Example1w" class="form-control" />
-                                            <label class="form-label" for="form3Example1w">Registration code</label>
-                                        </div>
-
+                                    
+                                    <div class="form-outline form-white mb-4">
+                                        <label class="form-label" for="motorbike-brand">Motorbike Brand</label>
+                                        <select id="motorbikebrand-dropdown">
+                                            <option value=1>AKT</option>
+                                            <option value=2>ApolloMotors</option>
+                                            <option value=3>Aprilia</option>
+                                            <option value=4>Ayco</option>
+                                            <option value=5>Bajaj</option>
+                                            <option value=6>Benelli</option>
+                                            <option value=7>BMW</option>
+                                            <option value=8>CFMoto</option>
+                                            <option value=9>Ducati</option>
+                                            <option value=10>Harley Davidson</option>
+                                            <option value=11>Hero</option>
+                                            <option value=12>Honda</option>
+                                            <option value=13>Husqvarna</option>
+                                            <option value=14>JiglingMotos</option>
+                                            <option value=15>Kawasaki</option>
+                                            <option value=16>Keeway</option>
+                                            <option value=17>Kymco</option>
+                                            <option value=18>KTM</option>
+                                            <option value=19>Lifan</option>
+                                            <option value=20>Piaggio</option>
+                                            <option value=21>Pulsar</option>
+                                            <option value=22>Royal Enfield</option>
+                                            <option value=23>Sherco</option>
+                                            <option value=24>Starker</option>
+                                            <option value=25>Suzuki</option>
+                                            <option value=26>SYM</option>
+                                            <option value=27>Triumph</option>
+                                            <option value=28>TVS</option>
+                                            <option value=29>Vespa</option>
+                                            <option value=30>Yamaha</option>
+                                            <option value=31>YCFRiding</option>
+                                        </select >
                                     </div>
-                                </div>
 
-                                <button type="submit" class="btn btn-success btn-lg mb-1">Submit</button>
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="motorbike-plate" maxlength="6"/>
+                                        <label class="form-label" for="motorbike-plate">Motorbike Plate</label>
+                                    </div>
 
-                            </form>
+                                    <div class="form-outline form-white mb-4">
+                                        <input id="motorbike-model" type="number" min="1900" max="2099" step="1" value="2023" />
+                                        <label class="form-label" for="motorbike-model">Motorbike Model</label>
+                                    </div>
 
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="text" id="userName" maxlength="15" class="form-control form-control-lg" />
+                                        <label class="form-label" for="userName">User name</label>
+                                    </div>
+
+                                    <div class="form-outline form-white mb-4">
+                                        <input type="password" id="passwordUser" class="form-control form-control-lg" />
+                                        <label class="form-label" for="passwordUser">Password</label>
+                                    </div>
+
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">Register</button>
+
+                                </form>
+                                <script src="~/js/CreateAnUserAPICall.js"></script>
+                                <script src="~/js/CreateAnUserPost.js"></script>
+                            </div>
                         </div>
                     </div>
                 </div>
