@@ -7,13 +7,42 @@ namespace ParkingLot.Controllers.REST_API
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MotorbikeBrandController
+    public class MotorbikeBrandController : Controller
     {
         private readonly IConfiguration configuration;
         public MotorbikeBrandController(IConfiguration configuration)
         {
             this.configuration = configuration;
         }
+
+        public ActionResult Register()
+        {
+            List<MotorbikeBrand> brands = new List<MotorbikeBrand>();
+            string sqlDataSource = configuration.GetConnectionString("databaseConnection");
+
+            using (MySqlConnection con = new MySqlConnection(sqlDataSource))
+            {
+                string query = "SELECT  id_motorbikebrand, motorbikebrand_name FROM motorbikebrand";
+                using (MySqlCommand cmd = new MySqlCommand(query))
+                {
+                    cmd.Connection = con;
+                    con.Open();
+                    using (MySqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            brands.Add(new MotorbikeBrand
+                            {
+                                Id = sdr.GetInt32(0),
+                                Name = sdr["motorbikebrand_name"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+            return View(brands);
+        }
+
 
         [HttpGet]
         public JsonResult Get()
