@@ -43,7 +43,7 @@ namespace ParkingLot.Controllers.REST_API
         [HttpGet("{id}")]
         public JsonResult GetOneMotorbike(int id)
         {
-            string query = @"SELECT id_motorbike, motorbike_plate, motorbike_model, id_motorbikeBrand FROM motorbike_brand WHERE id_motorbike =?Id;";
+            string query = @"SELECT id_motorbike, motorbike_plate, motorbike_model, id_motorbikeBrand FROM motorbike WHERE id_motorbike =?Id;";
 
             DataTable table = new DataTable();
             string sqlDataSource = configuration.GetConnectionString("databaseConnection");
@@ -99,7 +99,7 @@ namespace ParkingLot.Controllers.REST_API
         [HttpPut]
         public JsonResult Put(Motorbike motorbike)
         {
-            string query = @"UPDATE motorbike SET motorbike_plate =?Plate, motorbike_model =?Model, id_motorbikeBrand =?IdMotorbikeBrand WHERE id_motorbikebrand =?Id;";
+            string query = @"UPDATE motorbike SET motorbike_plate =?Plate, motorbike_model =?Model, id_motorbikeBrand =?IdMotorbikeBrand WHERE id_motorbike =?Id;";
 
             DataTable table = new DataTable();
             string sqlDataSource = configuration.GetConnectionString("databaseConnection");
