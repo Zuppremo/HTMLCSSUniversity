@@ -1,0 +1,78 @@
+﻿body {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.fcc-btn {
+    background-color: #eba017;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+    .fcc-btn:hover {
+        background-color: #eba017;
+    }
+
+
+form {
+    width: 800px;
+    padding: 40px;
+    background-color: #f6f8fc;
+    border-radius: 15px;
+    box-shadow: 0px 0px 50px hsl(236, 55%, 83%);
+    text-align: center;
+}
+
+.form {
+    color: #303580;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100px;
+}
+
+.panel {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    border-radius: 50px;
+    margin: 20px;
+}
+
+
+    .panel.active {
+        flex: 5;
+    }
+
+.input-group {
+    text-align: left;
+    font-family: 'Lucida Sans';
+}
+
+.user {
+    font-weight: 100px;
+}
