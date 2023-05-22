@@ -1,4 +1,5 @@
 using MySqlConnector;
+using Newtonsoft.Json.Serialization;
 
 namespace ParkingLot
 {
@@ -7,42 +8,16 @@ namespace ParkingLot
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-            //Server=127.0.0.1;User ID=zuppremodev;Password=deybi;Database=bda_2023
             // Add services to the container.
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddTransient<MySqlConnection>(_ =>
-            new MySqlConnection(builder.Configuration.GetConnectionString("Default")));
+            //builder.Services.AddControllersWithViews();
 
-            using var connection = new MySqlConnection("Server=127.0.0.1;User ID=zuppremodev;Password=deybi;Database=bda_2023");
-            connection.Open();
-            using var command = new MySqlCommand("SELECT * FROM Persona", connection);
-            Console.WriteLine("Select mysql query ");
-            using var reader = command.ExecuteReader();
-            while (reader.Read())
-            {
-                Console.WriteLine($"{reader.GetInt32(0)}, \t {reader.GetString(1)}");
-            }
-            reader.Close();
-            command.CommandText = "SELECT @@VERSION";
-            Console.WriteLine("Select version of mysql");
-            using var reader2 = command.ExecuteReader();
-            while (reader2.Read())
-            {
-                Console.WriteLine($"{reader2.GetString(0)}");
-            }
-            reader2.Close();
+            builder.Services.AddCors(c => {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
 
-            command.CommandText = "SHOW DATABASES";
-            Console.WriteLine("show databases");
-            using var reader3 = command.ExecuteReader();
-            while (reader3.Read())
-            {
-                Console.WriteLine($"{reader3.GetString(0)}");
-            }
-            reader3.Close();
+            builder.Services.AddControllersWithViews().AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
 
-
-
+            builder.Services.AddControllers();
 
             var app = builder.Build();
 
@@ -60,6 +35,11 @@ namespace ParkingLot
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
 
             app.MapControllerRoute(
                 name: "default",
