@@ -19,6 +19,7 @@ form.addEventListener('submit', function (e) {
     console.log(name.value);
     console.log(email.value);
 
+    
     fetch('https://localhost:7119/api/Person', {
         method: 'POST',
         body:JSON.stringify({
@@ -37,8 +38,22 @@ form.addEventListener('submit', function (e) {
     .then(function (data){ 
         console.log(data);
     } 
-    )});
+    )}).await();
     
+    function postPerson(){
+
+    }
+    
+    function postMotorbike(){
+
+    }
+
+    function postUser(){
+
+    }
+
+
+
 
     fetch('https://localhost:7119/api/Motorbike', {
         method: 'POST',
@@ -58,7 +73,6 @@ form.addEventListener('submit', function (e) {
         console.log(data);
     } 
     );
-
 
     fetch('https://localhost:7119/api/User/form', {
         method: 'POST',
