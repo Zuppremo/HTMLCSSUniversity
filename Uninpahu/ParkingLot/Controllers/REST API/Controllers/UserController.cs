@@ -130,7 +130,7 @@ namespace ParkingLot.Controllers.REST_API.Controllers
         public JsonResult PostForm(User user)
         {
             string query = @"INSERT INTO user (id_person, id_motorbike, user_workingday, username, user_password, user_has_access) 
-                             VALUES (MAX(person.id_Person), MAX(motorbike.id_motorbike), ?UserWorkingDay, ?UserName, ?UserPassword, ?UserHasAccess);";
+                 VALUES ((SELECT MAX(id_person) FROM person), (SELECT MAX(id_motorbike) FROM motorbike), ?UserWorkingDay, ?UserName, ?UserPassword, ?UserHasAccess)";
 
             DataTable table = new DataTable();
             string sqlDataSource = configuration.GetConnectionString("databaseConnection");

@@ -23,7 +23,7 @@ namespace ParkingLot.Controllers
             return View();
         }
 
-        public IActionResult Uwu()
+        public IActionResult Contact()
         {
             return View();
         }

@@ -19,8 +19,7 @@ form.addEventListener('submit', function (e) {
     console.log(name.value);
     console.log(email.value);
 
-    
-    fetch('https://localhost:7119/api/Person', {
+    const personAddition = fetch('https://localhost:7119/api/Person', {
         method: 'POST',
         body:JSON.stringify({
             "Name": name.value,
@@ -38,24 +37,11 @@ form.addEventListener('submit', function (e) {
     .then(function (data){ 
         console.log(data);
     } 
-    )}).await();
+    )});
     
-    function postPerson(){
-
-    }
-    
-    function postMotorbike(){
-
-    }
-
-    function postUser(){
-
-    }
-
-
-
-
-    fetch('https://localhost:7119/api/Motorbike', {
+    console.log(motorbike_plate.value);
+    console.log(motorbikemodel.value);
+    const motorbikeAdd = fetch('https://localhost:7119/api/Motorbike', {
         method: 'POST',
         body:JSON.stringify({
             "Plate": motorbike_plate.value,
@@ -71,10 +57,9 @@ form.addEventListener('submit', function (e) {
     })
     .then(function (data){ 
         console.log(data);
-    } 
-    );
+    });
 
-    fetch('https://localhost:7119/api/User/form', {
+    const userAdd = fetch('https://localhost:7119/api/User/form', {
         method: 'POST',
         body:JSON.stringify({
             "UserWorkingDay": workingday.value,
@@ -92,3 +77,9 @@ form.addEventListener('submit', function (e) {
     .then(function (data){ 
         console.log(data);
     } );
+
+    const allData = Promise.all([personAddition, motorbikeAdd, userAdd]);
+
+    allData.then((res => console.log(res)));
+    
+    

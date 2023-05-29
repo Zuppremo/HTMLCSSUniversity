@@ -13,7 +13,7 @@ namespace ParkingLot.Models
         public string UserName { get; set; }
         [DataType(DataType.Password)]
         public required string UserPassword { get; set; }
-        public bool UserHasAccess { get; set; }
+        public int UserHasAccess { get; set; }
 
     }
 }

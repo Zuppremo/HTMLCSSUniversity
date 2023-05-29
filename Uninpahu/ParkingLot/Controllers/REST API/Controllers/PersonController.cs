@@ -2,6 +2,7 @@
 using MySqlConnector;
 using ParkingLot.Models;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 
 namespace ParkingLot.Controllers.REST_API
 {
@@ -63,31 +64,50 @@ namespace ParkingLot.Controllers.REST_API
             }
             return new JsonResult(table);
         }
+        
 
         [HttpGet("{id}")]
         public JsonResult GetOnePerson(int id)
         {
-            string query = @"SELECT id_person, person_name, person_email, person_IDNumber, person_PhoneNumber FROM person WHERE id_person =?Id;";
-
-            DataTable table = new DataTable();
-            string sqlDataSource = configuration.GetConnectionString("databaseConnection");
-            MySqlDataReader myReader;
-
-            using (MySqlConnection myCon = new MySqlConnection(sqlDataSource))
+            try
             {
-                Console.WriteLine(sqlDataSource);
-                myCon.Open();
-                using (MySqlCommand myCommand = new MySqlCommand(query, myCon))
+                if (id <= 0)
                 {
-                    myCommand.Parameters.AddWithValue("?Id", id);
-                    myReader = myCommand.ExecuteReader();
-                    table.Load(myReader);
-
-                    myReader.Close();
-                    myCon.Close();
+                    throw new ArgumentOutOfRangeException("id", "Id must be a positive integer.");
                 }
+
+                string query = @"SELECT id_person, person_name, person_email, person_IDNumber, person_PhoneNumber FROM person WHERE id_person = ?Id;";
+
+                DataTable table = new DataTable();
+                string sqlDataSource = configuration.GetConnectionString("databaseConnection");
+                MySqlDataReader myReader;
+
+                using (MySqlConnection myCon = new MySqlConnection(sqlDataSource))
+                {
+                    Console.WriteLine(sqlDataSource);
+                    myCon.Open();
+                    using (MySqlCommand myCommand = new MySqlCommand(query, myCon))
+                    {
+                        myCommand.Parameters.AddWithValue("?Id", id);
+                        myReader = myCommand.ExecuteReader();
+                        table.Load(myReader);
+
+                        myReader.Close();
+                        myCon.Close();
+                    }
+                }
+                return new JsonResult(table);
             }
-            return new JsonResult(table);
+            catch (MySqlException ex)
+            {
+                // Perform custom error handling here
+                return new JsonResult(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // Perform custom error handling here
+                return new JsonResult(ex.Message);
+            }
         }
 
         [HttpPost]

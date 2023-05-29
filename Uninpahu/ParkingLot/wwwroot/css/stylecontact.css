@@ -1,0 +1,95 @@
+ body{
+    background-image:url("https://img1.wallspic.com/previews/0/4/3/9/4/149340/149340-hombre_de_chaqueta_negra_montando_motocicleta_en_la_carretera_durante_el_dia-500x.jpg") ;
+    background-size: cover;
+    position: relative;
+    /*
+   background-position: center;
+   height: 100vh;*/
+ 
+ 
+ }
+ .container{
+  font-family: Arial, Helvetica, sans-serif;
+ }
+ .container{
+     text-shadow: -1px -1px 0 #000,
+     -1px -1px 0 #000,
+     -1px -1px 0 #000,
+     -1px -1px 0 #000;
+   
+ }
+ 
+ 
+ #Mensaje{
+     resize: none;
+ }
+ 
+ 
+ .row li{
+     list-style: none;
+ }
+ .row h1{
+     color: #303580;
+ }
+ 
+ .row h4{
+     color: rgb(3, 3, 3);
+ }
+    
+ zx
+ .row li{
+ 
+     color: rgb(250, 245, 245);
+ }
+ .form-control{
+ 
+     background-color: transparent;
+ }
+ 
+ label{
+     color: #f9f9fa;
+ }
+ 
+ nav .navbar-brand mb-0 h1{
+     text-align: center;
+ }
+  /* Mobile */
+ @media screen and (max-width: 768px) {
+     .container {
+       margin-top: 300px;
+     }
+   }
+ 
+   
+     .col-sm-12 {
+       margin-top: 30px;
+       text-align: center;
+     }
+     
+     .col-md-5 {
+       margin-bottom: 50px;
+     }
+     
+     .col-md-7 {
+       margin-bottom: 50px;
+     }
+     
+     .form-label {
+       margin-top: 20px;
+       margin-bottom: 5px;
+     }
+     
+     .form-control {
+       margin-bottom: 20px;
+     }
+   
+   .row h4{
+     color: #303580;
+ }
+ .fcc-btn{
+    background-color:  #eba017;
+    color:white ;
+    padding: 15px 300px;
+    text-decoration: none;
+ }
+ 
