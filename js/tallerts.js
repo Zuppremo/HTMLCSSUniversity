@@ -2,6 +2,7 @@ var numberOne = 0;
 var numberTwo = 0;
 var result = 0;
 var fibonacciLimit;
+var factorialLimit = 0;
 
 function getValues(){
     numberOne = parseFloat(document.getElementById("numberOne").value);
@@ -63,26 +64,20 @@ function fibonacci(){
     }
 }
 
-function factorial(n) {
-    let result = 1;
-    for (let i = 1; i <= n; i++) {
+function factorialNumber() {
+    factorialLimit = parseInt(document.getElementById("factorialLimit").value);
+    result = 1;
+    for (let i = 1; i <= factorialLimit; i++){
         result *= i;
+        showResult();
     }
-    console.log("El factorial es: ", result);
 }
 
-function pair(n) {
-    if (n % 2 == 0)
-        console.log(n, " es par");
+function pair()
+{
+    let pairNumber = document.getElementById("pairNumber").value;
+    if (pairNumber % 2 == 0)
+        document.getElementById("isPairNumber").innerHTML = "El numero ingresado es par";
     else
-        console.log(n, " es impar");
-}
-
-function cousinNumbers(n) {
-    for (let i = 1; i < n; i++) {
-        if (i % i == 0 && i % 1 == 0)
-            console.log(i, " es primo")
-        else
-            console.log(i, " no es primo")
-    }
+        document.getElementById("isPairNumber").innerHTML = "El numero ingresado no es par";
 }
