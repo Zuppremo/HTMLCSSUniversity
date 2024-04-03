@@ -1,146 +1,82 @@
-*{
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-
-
-body{
-    background-color: lightgrey;
-    font-family: sans-serif;
-    width: 960px;
-    margin: 0 auto;
-  }
-  
-  .container{
-    margin: auto;
-    background-color: white;
-    width: 800px;
-    padding: 30px;
-  }
-  .mainContainer{
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  header{
-    background-color: #eeeeee;
-    overflow: hidden;
-    width: 100%;
-  }
-  header nav ul li{
-    list-style: none;
-    float: left;
-}
-header nav ul li a{
-    text-decoration: none;
-    padding: 15px 20px 15px 20px;
-    display: inline-block;
-    color: #2d2e46;
-}
-header nav ul li a:hover{
-    text-decoration: none;
-    padding: 15px 20px 15px 20px;
-    display: inline-block;
-    background-color: goldenrod;
-    color: white;
-}
-  
-  ul, li {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-  }
-  
-  ul.slider{
-    position: relative;
-    width: 800px;
-    height: 300px;
-  }
-  
-  ul.slider li {
-      position: absolute;
-      left: 0px;
-      top: 0px;
-      opacity: 0;
-      width: inherit;
-      height: inherit;
-      transition: opacity .5s;
-      background:#fff;
-  }
-  
-  ul.slider li img{
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-  }
-  
-  ul.slider li:first-child {
-      opacity: 1; 
-  }
-  
-  ul.slider li:target {
-      opacity: 1; 
-  }
-  
-  .menu{
+h1{
+    color: #6a1a21;
     text-align: center;
-    margin: 20px;
-  }
-  
-  .menu li{
-    display: inline-block;
-    text-align: center;
-  }
-  
-  .menu li a{
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    background-color: grey;
+}
+
+article {
+    margin: 10px;
     padding: 10px;
-    width: 20px;
-    height: 20px;
-    font-size: 20px;
-    border-radius: 100%;
-  }
+    background: #0b5ed7;
+}
+/* flexbox nos permite organizar n cantidad de elementos y que se adjusten automaticamente*/
+section{
+    display: flex;
+}
 
-  h1{
-    border-bottom: 2px solid blue;
-    text-align: center;
-  }
+.container > div {
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(207,232,220);
+    border: 2px solid rgb(79,185,227);
+}
 
-  h2{
-    border: 2px solid #121212;
-  }
+.container{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-gap: 20px;
+}
 
-  #data, #main{
+
+.box {
+    width: 150px;
+    height: 100px;
+    border-radius: 5px;
+    background-color: rgb(207, 232, 220);
+    padding: 1em;
     float: left;
-    margin: 0;
-    padding: 0;
-  }
+    margin-right: 15px;
+}
 
-  #data{
-    border-top: 4px dotted greenyellow;
-    border-bottom: 4px dotted greenyellow;
-    width: 260px;
-  }
-  
-  #main{
-    width: 700px;
-  }
+p {
+    animation-duration: 2s;
+    animation-name: slidein;
+    animation-direction: alternate;
+}
 
-  #content{
-    list-style-type: none;
-    padding: 0;
-  }
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
 
-  #content li {
-    float: left;
-    width: 33%;
-  }
+    75% {
+        font-size: 300%;
+        margin-left: 25%;
+        width: 150%;
+    }
 
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
 
-  #content{
-    border: 2px dashed goldenrod;
-  }
+.image-reflect{
+    padding-top: 100px;
+    width: 50%;
+    height: 50%;
+    -webkit-box-reflect: right;
+}
+
+.car{
+    width: 480px;
+    height: 480;
+    transform: rotate(0.5turn);
+}
+
+.cartwo{
+    width: 480px;
+    height: 480px;
+    transform: scale(0.5, 0.5);
+}
+
